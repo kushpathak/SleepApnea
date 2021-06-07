@@ -2,8 +2,8 @@
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
 #include "MAX30100_PulseOximeter.h"
-const char *ssid =  "Galaxy A51693";     
-const char *pass =  "tmqb7021";
+const char *ssid =  "****";     
+const char *pass =  "****";
 
 #define REPORT_TIME 5000
 
@@ -73,7 +73,7 @@ void loop()
    String data = String(SpO2);
   String b = String(BPM);
   String reqBody = "?Spo2=" + data + "&Bpm=" + b;
-  String link = "http://192.168.121.56/conn.php" + reqBody;
+  String link = "http://__.__.__.__/conn.php" + reqBody; //Fill your own IP address
   http.begin(link);
   int httpCode = http.GET();
   String payload = http.getString();
