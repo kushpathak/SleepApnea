@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private static String lastSpo2;
     private static String lastBpm;
     private static float low,mid,high;
-    private static final String URL = "http://192.168.80.56/api.php";
+    private static final String URL = "http://__.__.__.__/api.php"; // Enter your Ipv4 address
     Interpreter interpreter;
     @Override
 
