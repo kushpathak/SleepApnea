@@ -58,30 +58,23 @@ void loop()
   
   if (millis() - LastReportedReading > REPORT_TIME)
   {
-  digitalWrite(2, LOW);                                              
-  Serial.print("Heart rate: ");  Serial.print(BPM);
-  Serial.print("\n");
-  Serial.print("SpO2: "); Serial.print(SpO2);
-  Serial.print("\n");
-  digitalWrite(2, HIGH);                                           
-  
-  LastReportedReading = millis();
-   HTTPClient http;
-   String data = String(SpO2);
-  String b = String(BPM);
-  String reqBody = "?Spo2=" + data + "&Bpm=" + b;
-  String link = "http://__.__.__.__/conn.php" + reqBody; //Fill your own IP address
-  http.begin(link);
-  int httpCode = http.GET();
-  String payload = http.getString();
-  Serial.println(httpCode);
-  Serial.println(payload);
-   Serial.println("Data Entered Successfully");
-   http.end();
- 
-  
- 
- 
+      Serial.print("Heart rate: ");  Serial.print(BPM);
+      Serial.print("\n");
+      Serial.print("SpO2: "); Serial.print(SpO2);
+      Serial.print("\n");                                          
+      LastReportedReading = millis();
+      HTTPClient http;
+      String data = String(SpO2);
+      String b = String(BPM);
+      String reqBody = "?Spo2=" + data + "&Bpm=" + b;
+      String link = "http://__.__.__.__/conn.php" + reqBody; //Fill your own IP address
+      http.begin(link);
+      int httpCode = http.GET();
+      String payload = http.getString();
+      Serial.println(httpCode);
+      Serial.println(payload);
+      Serial.println("Data Entered Successfully");
+      http.end();
   }
  
 
