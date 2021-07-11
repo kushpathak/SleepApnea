@@ -17,7 +17,6 @@ float BPM;
 int SpO2;
 void setup() 
 {
-       Serial.begin(115200);
        
               
        Serial.println("Connecting to ");
@@ -33,9 +32,7 @@ void setup()
           }
       Serial.println("");
       Serial.println("WiFi connected"); 
-      pinMode(2, OUTPUT); // Implying that pin 2 of pulse oximter will act as output pin
       Serial.print("Initializing Pulse Oximeter..");
-      pinMode(16, OUTPUT); // Implying that pin 16 will act as output
       if (!oximeter.begin())
       {
          Serial.println("FAILED");
@@ -44,7 +41,7 @@ void setup()
        else
       {
          Serial.println("SUCCESS");
-         digitalWrite(2, HIGH);   
+            
       }
       oximeter.setOnBeatDetectedCallback(onBeatDetected);     
       oximeter.setIRLedCurrent(MAX30100_LED_CURR_24MA);
